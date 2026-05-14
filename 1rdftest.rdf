@@ -1,0 +1,1734 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ship="http://snomed.info/id/224673002"
+     xmlns:tour="https://tourism-onto.org/ont#"
+     xmlns:group="http://www.w3.org/2006/vcard/ns#Group#"
+     xmlns:unece="http://unece.org/vocab#"
+     xmlns:ground="http://purl.obolibrary.org/obo/ENVO_03501351#"
+     xmlns:schema="https://schema.org/"
+     xmlns:single="http://purl.obolibrary.org/obo/NCIT_C48440#"
+     xmlns:medtour="http://purl.obolibrary.org/obo/gsso.owl"
+     xmlns:schema1="http://schema.org/"
+     xmlns:airplane="http://purl.obolibrary.org/obo/ENVO_03501349#"
+     xmlns:histsite="http://purl.obolibrary.org/obo/gsso.owl#"
+     xmlns:bioportal="http://www.w3.org/2002/07/owl#Class#"
+     xmlns:tourguide="http://purl.obolibrary.org/obo/OCCO_39701100#"
+     xmlns:NCIThiking="http://purl.obolibrary.org/obo/ncit.owl#"
+     xmlns:TourismOLs="https://w3id.org/biopragmatics/resources/mesh/mesh.ofnhttps://w3id.org/biopragmatics/resources/mesh/mesh.ofn#"
+     xmlns:snomedfarm="http://snomed.info/sct/9000000000002070081231#"
+     xmlns:activityOLS="http://www.w3.org/ns/dcat#"
+     xmlns:travelagent="http://purl.obolibrary.org/obo/OCCO_41304100#"
+     xmlns:watersports="https://w3id.org/biopragmatics/resources/mesh/mesh.ofn"
+     xmlns:organization="http://schema.org/Organization#">
+    <Ontology rdf:about="https://tourism-onto.org/ont">
+        <dc:creator>Tourism Ontology Group
+BSCS51F23S002 (Barira)
+BSCS51F23S031 (Mishal)</dc:creator>
+        <dc:title>Tourism Ontology</dc:title>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://schema.org/broker -->
+
+    <ObjectProperty rdf:about="http://schema.org/broker">
+        <inverseOf rdf:resource="https://tourism-onto.org/ont#bookedBy"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OCCO_41304100"/>
+        <rdfs:range rdf:resource="http://schema.org/Reservation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/containsPlace -->
+
+    <ObjectProperty rdf:about="http://schema.org/containsPlace">
+        <rdfs:domain rdf:resource="http://id.nlm.nih.gov/mesh/D000085926"/>
+        <rdfs:range>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schema.org/TouristAttraction"/>
+                    <rdf:Description rdf:about="http://schema.org/TouristDestination"/>
+                </intersectionOf>
+            </Class>
+        </rdfs:range>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/makesOffer -->
+
+    <ObjectProperty rdf:about="http://schema.org/makesOffer">
+        <rdfs:domain rdf:resource="http://schema.org/TravelAgency"/>
+        <rdfs:range rdf:resource="https://tourism-onto.org/ont#TourismActivity"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://schema.org/provider -->
+
+    <ObjectProperty rdf:about="http://schema.org/provider">
+        <rdfs:domain rdf:resource="http://schema.org/TravelAgency"/>
+        <rdfs:range rdf:resource="http://schema.org/Reservation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#bookedBy -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#bookedBy">
+        <rdfs:domain rdf:resource="http://schema.org/Reservation"/>
+        <rdfs:domain rdf:resource="http://schema.org/Ticket"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OCCO_41304100"/>
+        <rdfs:range rdf:resource="https://tourism-onto.org/ont#TourismActor"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#guidedBy -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#guidedBy">
+        <rdfs:domain rdf:resource="https://tourism-onto.org/ont#TourismActor"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OCCO_39701100"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#hasAccomodation -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#hasAccomodation">
+        <rdfs:domain>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schema.org/Reservation"/>
+                    <rdf:Description rdf:about="https://tourism-onto.org/ont#TourismActor"/>
+                </intersectionOf>
+            </Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://schema.org/Accommodation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#hasDestination -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#hasDestination">
+        <rdfs:domain>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schema.org/Vehicle"/>
+                    <rdf:Description rdf:about="https://tourism-onto.org/ont#TourismActor"/>
+                </intersectionOf>
+            </Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://schema.org/TouristDestination"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#hasEmployee -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#hasEmployee">
+        <inverseOf rdf:resource="https://tourism-onto.org/ont#worksFor"/>
+        <rdfs:domain rdf:resource="http://schema.org/TravelAgency"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OCCO_39701100"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#hasMembers -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#hasMembers">
+        <inverseOf rdf:resource="https://tourism-onto.org/ont#memberOf"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/vcard/ns#Group"/>
+        <rdfs:range rdf:resource="https://tourism-onto.org/ont#Tourist"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#hasPolicy -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#hasPolicy">
+        <inverseOf rdf:resource="https://tourism-onto.org/ont#isPolicyOf"/>
+        <rdfs:domain rdf:resource="http://id.nlm.nih.gov/mesh/D000085926"/>
+        <rdfs:range rdf:resource="http://purl.org/dc/terms/Policy"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#hasRating -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#hasRating">
+        <rdfs:domain rdf:resource="http://schema.org/Accommodation"/>
+        <rdfs:domain rdf:resource="http://schema.org/TouristAttraction"/>
+        <rdfs:domain rdf:resource="http://schema.org/TouristDestination"/>
+        <rdfs:domain rdf:resource="http://schema.org/TravelAgency"/>
+        <rdfs:range rdf:resource="http://schema.org/Rating"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#hasReview -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#hasReview">
+        <rdfs:domain rdf:resource="http://schema.org/Accommodation"/>
+        <rdfs:domain rdf:resource="http://schema.org/TouristAttraction"/>
+        <rdfs:domain rdf:resource="http://schema.org/TouristDestination"/>
+        <rdfs:domain rdf:resource="http://schema.org/TravelAgency"/>
+        <rdfs:range rdf:resource="http://schema.org/Review"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#hasTicket -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#hasTicket">
+        <inverseOf rdf:resource="https://tourism-onto.org/ont#requiresTicket"/>
+        <rdfs:domain rdf:resource="https://tourism-onto.org/ont#TourismActor"/>
+        <rdfs:range rdf:resource="http://schema.org/Ticket"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#hasTransport -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#hasTransport">
+        <rdfs:domain>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schema.org/Reservation"/>
+                    <rdf:Description rdf:about="https://tourism-onto.org/ont#TourismActor"/>
+                </intersectionOf>
+            </Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://schema.org/Vehicle"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#isPolicyOf -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#isPolicyOf">
+        <rdfs:domain rdf:resource="http://purl.org/dc/terms/Policy"/>
+        <rdfs:range rdf:resource="http://id.nlm.nih.gov/mesh/D000085926"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#memberOf -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#memberOf">
+        <rdfs:domain rdf:resource="https://tourism-onto.org/ont#Tourist"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/vcard/ns#Group"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#organizedBy -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#organizedBy">
+        <rdfs:domain rdf:resource="http://www.projecthalo.com/aura#Activity"/>
+        <rdfs:range rdf:resource="http://schema.org/Organization"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#partOf -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#partOf">
+        <rdfs:domain>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schema.org/TouristAttraction"/>
+                    <rdf:Description rdf:about="http://www.projecthalo.com/aura#Activity"/>
+                </intersectionOf>
+            </Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://schema.org/TouristDestination"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#participatesIn -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#participatesIn">
+        <rdfs:domain rdf:resource="https://tourism-onto.org/ont#TourismActor"/>
+        <rdfs:range rdf:resource="http://www.projecthalo.com/aura#Activity"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#providesTransport -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#providesTransport">
+        <rdfs:domain rdf:resource="http://schema.org/TravelAgency"/>
+        <rdfs:range rdf:resource="http://schema.org/Vehicle"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#requiresTicket -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#requiresTicket">
+        <rdfs:domain>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schema.org/TouristAttraction"/>
+                    <rdf:Description rdf:about="http://www.projecthalo.com/aura#Activity"/>
+                </intersectionOf>
+            </Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://schema.org/Ticket"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#takesPlaceIn -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#takesPlaceIn">
+        <rdfs:domain rdf:resource="https://tourism-onto.org/ont#TourismActivity"/>
+        <rdfs:range rdf:resource="http://schema.org/TouristDestination"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#worksFor -->
+
+    <ObjectProperty rdf:about="https://tourism-onto.org/ont#worksFor">
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OCCO_39701100"/>
+        <rdfs:range rdf:resource="http://schema.org/TravelAgency"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://schema.org/amenityFeature -->
+
+    <DatatypeProperty rdf:about="http://schema.org/amenityFeature">
+        <rdfs:domain rdf:resource="http://schema.org/Accommodation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/checkinTime -->
+
+    <DatatypeProperty rdf:about="http://schema.org/checkinTime">
+        <rdfs:domain rdf:resource="http://schema.org/Accommodation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/checkoutTime -->
+
+    <DatatypeProperty rdf:about="http://schema.org/checkoutTime">
+        <rdfs:domain rdf:resource="http://schema.org/Accommodation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/companyRegistration -->
+
+    <DatatypeProperty rdf:about="http://schema.org/companyRegistration">
+        <rdfs:domain rdf:resource="http://schema.org/TravelAgency"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/description -->
+
+    <DatatypeProperty rdf:about="http://schema.org/description">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:domain rdf:resource="http://www.projecthalo.com/aura#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/email -->
+
+    <DatatypeProperty rdf:about="http://schema.org/email">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/endDate -->
+
+    <DatatypeProperty rdf:about="http://schema.org/endDate">
+        <rdfs:domain rdf:resource="http://www.projecthalo.com/aura#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/givenName -->
+
+    <DatatypeProperty rdf:about="http://schema.org/givenName">
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/identifier -->
+
+    <DatatypeProperty rdf:about="http://schema.org/identifier">
+        <rdfs:domain rdf:resource="http://www.projecthalo.com/aura#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/isAccessibleForFree -->
+
+    <DatatypeProperty rdf:about="http://schema.org/isAccessibleForFree">
+        <rdfs:domain rdf:resource="http://www.projecthalo.com/aura#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/name -->
+
+    <DatatypeProperty rdf:about="http://schema.org/name">
+        <rdfs:domain>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schema.org/Organization"/>
+                    <rdf:Description rdf:about="http://www.projecthalo.com/aura#Activity"/>
+                </intersectionOf>
+            </Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/numberOfRooms -->
+
+    <DatatypeProperty rdf:about="http://schema.org/numberOfRooms">
+        <rdfs:domain>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schema.org/Hostel"/>
+                    <rdf:Description rdf:about="http://schema.org/Hotel"/>
+                    <rdf:Description rdf:about="http://schema.org/Resort"/>
+                </intersectionOf>
+            </Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/occupancy -->
+
+    <DatatypeProperty rdf:about="http://schema.org/occupancy">
+        <rdfs:domain rdf:resource="http://schema.org/Accommodation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/openingHours -->
+
+    <DatatypeProperty rdf:about="http://schema.org/openingHours">
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/GSSO_000970"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/price -->
+
+    <DatatypeProperty rdf:about="http://schema.org/price">
+        <rdfs:domain rdf:resource="http://schema.org/Ticket"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/ratingValue -->
+
+    <DatatypeProperty rdf:about="http://schema.org/ratingValue">
+        <rdfs:domain rdf:resource="http://schema.org/Rating"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/requiredMinAge -->
+
+    <DatatypeProperty rdf:about="http://schema.org/requiredMinAge">
+        <rdfs:domain rdf:resource="http://sbmi.uth.tmc.edu/ontology/ochv#43215"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/reviewBody -->
+
+    <DatatypeProperty rdf:about="http://schema.org/reviewBody">
+        <rdfs:domain rdf:resource="http://schema.org/Review"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/starRating -->
+
+    <DatatypeProperty rdf:about="http://schema.org/starRating">
+        <rdfs:domain rdf:resource="http://schema.org/Accommodation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/startDate -->
+
+    <DatatypeProperty rdf:about="http://schema.org/startDate">
+        <rdfs:domain rdf:resource="http://www.projecthalo.com/aura#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/telephone -->
+
+    <DatatypeProperty rdf:about="http://schema.org/telephone">
+        <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#duration -->
+
+    <DatatypeProperty rdf:about="https://tourism-onto.org/ont#duration">
+        <rdfs:domain rdf:resource="http://www.projecthalo.com/aura#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">How long the activity lasts (e.g. 3 hours, 2 days).</rdfs:comment>
+        <rdfs:label xml:lang="en">duration</rdfs:label>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#language -->
+
+    <DatatypeProperty rdf:about="https://tourism-onto.org/ont#language">
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Language(s) spoken by the tour guide.</rdfs:comment>
+        <rdfs:label xml:lang="en">language</rdfs:label>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#latitude -->
+
+    <DatatypeProperty rdf:about="https://tourism-onto.org/ont#latitude">
+        <rdfs:domain rdf:resource="http://schema.org/TouristDestination"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Geographic latitude of the destination.</rdfs:comment>
+        <rdfs:label xml:lang="en">latitude</rdfs:label>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#longitude -->
+
+    <DatatypeProperty rdf:about="https://tourism-onto.org/ont#longitude">
+        <rdfs:domain rdf:resource="http://schema.org/TouristDestination"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Geographic longitude of the destination.</rdfs:comment>
+        <rdfs:label xml:lang="en">longitude</rdfs:label>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://tourism-onto.org/ont#nationality -->
+
+    <DatatypeProperty rdf:about="https://tourism-onto.org/ont#nationality">
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Country of origin of the traveller.</rdfs:comment>
+        <rdfs:label xml:lang="en">nationality</rdfs:label>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://id.nlm.nih.gov/mesh/D000073678 -->
+
+    <Class rdf:about="http://id.nlm.nih.gov/mesh/D000073678">
+        <rdfs:subClassOf rdf:resource="http://sbmi.uth.tmc.edu/ontology/ochv#43215"/>
+        <rdfs:label>WaterTourism</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://id.nlm.nih.gov/mesh/D000085926 -->
+
+    <Class rdf:about="http://id.nlm.nih.gov/mesh/D000085926">
+        <rdfs:label>Tourism</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/ENVO_03501107 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/ENVO_03501107">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Vehicle"/>
+        <rdfs:label>Train</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/ENVO_03501349 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/ENVO_03501349">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Vehicle"/>
+        <disjointWith rdf:resource="http://snomed.info/id/224673002"/>
+        <rdfs:label>Airplane</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GSSO_000970 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/GSSO_000970">
+        <rdfs:subClassOf rdf:resource="https://tourism-onto.org/ont#TourismActivity"/>
+        <rdfs:label>Cultural Activity</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GSSO_008167 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/GSSO_008167">
+        <rdfs:subClassOf rdf:resource="http://schema.org/TouristAttraction"/>
+        <rdfs:label>HistoricSite</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GSSO_011080 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/GSSO_011080">
+        <rdfs:subClassOf rdf:resource="http://schema.org/TouristDestination"/>
+        <rdfs:label>UrbanArea</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C180667 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/NCIT_C180667">
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/entity/Q107290290"/>
+        <rdfs:label>Hiking</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C48440 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/NCIT_C48440">
+        <rdfs:subClassOf rdf:resource="https://tourism-onto.org/ont#Tourist"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="https://tourism-onto.org/ont#memberOf"/>
+                <minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</minQualifiedCardinality>
+                <onClass rdf:resource="http://www.w3.org/2006/vcard/ns#Group"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>SinglePerson</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OCCO_39701100 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/OCCO_39701100">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
+        <disjointWith rdf:resource="https://tourism-onto.org/ont#TouristGroup"/>
+        <rdfs:label>TourGuide</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OCCO_41304100 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/OCCO_41304100">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
+        <rdfs:label>TravelAgent</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.org/dc/terms/Policy -->
+
+    <Class rdf:about="http://purl.org/dc/terms/Policy">
+        <rdfs:label>Policy</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://sbmi.uth.tmc.edu/ontology/ochv#43215 -->
+
+    <Class rdf:about="http://sbmi.uth.tmc.edu/ontology/ochv#43215">
+        <rdfs:subClassOf rdf:resource="https://tourism-onto.org/ont#TourismActivity"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="https://tourism-onto.org/ont#takesPlaceIn"/>
+                <someValuesFrom rdf:resource="http://schema.org/TouristDestination"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>AdventureActivity</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Accommodation -->
+
+    <Class rdf:about="http://schema.org/Accommodation">
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="https://tourism-onto.org/ont#hasRating"/>
+                <someValuesFrom rdf:resource="http://schema.org/Rating"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Apartment -->
+
+    <Class rdf:about="http://schema.org/Apartment">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Accommodation"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Aquarium -->
+
+    <Class rdf:about="http://schema.org/Aquarium">
+        <rdfs:subClassOf rdf:resource="http://schema.org/TouristAttraction"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Beach -->
+
+    <Class rdf:about="http://schema.org/Beach">
+        <rdfs:subClassOf rdf:resource="http://schema.org/TouristDestination"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/BusOrCoach -->
+
+    <Class rdf:about="http://schema.org/BusOrCoach">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Vehicle"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Festival -->
+
+    <Class rdf:about="http://schema.org/Festival">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GSSO_000970"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/FoodEvent -->
+
+    <Class rdf:about="http://schema.org/FoodEvent">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GSSO_000970"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Hostel -->
+
+    <Class rdf:about="http://schema.org/Hostel">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Accommodation"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Hotel -->
+
+    <Class rdf:about="http://schema.org/Hotel">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Accommodation"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Mountain -->
+
+    <Class rdf:about="http://schema.org/Mountain">
+        <rdfs:subClassOf rdf:resource="http://schema.org/TouristDestination"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Museum -->
+
+    <Class rdf:about="http://schema.org/Museum">
+        <rdfs:subClassOf rdf:resource="http://schema.org/TouristAttraction"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Organization -->
+
+    <Class rdf:about="http://schema.org/Organization"/>
+    
+
+
+    <!-- http://schema.org/PerformingArtsEvent -->
+
+    <Class rdf:about="http://schema.org/PerformingArtsEvent">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GSSO_000970"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Person -->
+
+    <Class rdf:about="http://schema.org/Person">
+        <rdfs:subClassOf rdf:resource="https://tourism-onto.org/ont#TourismActor"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="https://tourism-onto.org/ont#hasAccomodation"/>
+                <minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</minQualifiedCardinality>
+                <onClass rdf:resource="http://schema.org/Accommodation"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="https://tourism-onto.org/ont#hasTransport"/>
+                <minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</minQualifiedCardinality>
+                <onClass rdf:resource="http://schema.org/Vehicle"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Rating -->
+
+    <Class rdf:about="http://schema.org/Rating">
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="https://tourism-onto.org/ont#hasRating"/>
+                <maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</maxQualifiedCardinality>
+                <onClass rdf:resource="http://schema.org/Rating"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Reservation -->
+
+    <Class rdf:about="http://schema.org/Reservation"/>
+    
+
+
+    <!-- http://schema.org/Resort -->
+
+    <Class rdf:about="http://schema.org/Resort">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Accommodation"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Review -->
+
+    <Class rdf:about="http://schema.org/Review"/>
+    
+
+
+    <!-- http://schema.org/Ticket -->
+
+    <Class rdf:about="http://schema.org/Ticket"/>
+    
+
+
+    <!-- http://schema.org/TouristAttraction -->
+
+    <Class rdf:about="http://schema.org/TouristAttraction">
+        <rdfs:subClassOf rdf:resource="http://schema.org/TouristDestination"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/TouristDestination -->
+
+    <Class rdf:about="http://schema.org/TouristDestination"/>
+    
+
+
+    <!-- http://schema.org/TravelAgency -->
+
+    <Class rdf:about="http://schema.org/TravelAgency">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Organization"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/UserReview -->
+
+    <Class rdf:about="http://schema.org/UserReview">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Review"/>
+    </Class>
+    
+
+
+    <!-- http://schema.org/Vehicle -->
+
+    <Class rdf:about="http://schema.org/Vehicle"/>
+    
+
+
+    <!-- http://schema.org/Zoo -->
+
+    <Class rdf:about="http://schema.org/Zoo">
+        <rdfs:subClassOf rdf:resource="http://schema.org/TouristAttraction"/>
+    </Class>
+    
+
+
+    <!-- http://snomed.info/id/102395001 -->
+
+    <Class rdf:about="http://snomed.info/id/102395001">
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/entity/Q131622718"/>
+        <rdfs:label>ParaGliding</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://snomed.info/id/20461001 -->
+
+    <Class rdf:about="http://snomed.info/id/20461001">
+        <rdfs:subClassOf rdf:resource="http://id.nlm.nih.gov/mesh/D000073678"/>
+        <rdfs:label>Swimming</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://snomed.info/id/224673002 -->
+
+    <Class rdf:about="http://snomed.info/id/224673002">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Vehicle"/>
+        <rdfs:label>Ship</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://snomed.info/id/257611004 -->
+
+    <Class rdf:about="http://snomed.info/id/257611004">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Accommodation"/>
+        <rdfs:label>FarmHouse</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://snomed.info/id/28895007 -->
+
+    <Class rdf:about="http://snomed.info/id/28895007">
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/entity/Q131622718"/>
+        <rdfs:label>SkyDiving</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://snomed.info/id/75335000 -->
+
+    <Class rdf:about="http://snomed.info/id/75335000">
+        <rdfs:subClassOf rdf:resource="http://id.nlm.nih.gov/mesh/D000073678"/>
+        <rdfs:label>ScubaDiving</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.projecthalo.com/aura#Activity -->
+
+    <Class rdf:about="http://www.projecthalo.com/aura#Activity"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#Group -->
+
+    <Class rdf:about="http://www.w3.org/2006/vcard/ns#Group">
+        <rdfs:subClassOf rdf:resource="https://tourism-onto.org/ont#TourismActor"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="https://tourism-onto.org/ont#memberOf"/>
+                <minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">6</minQualifiedCardinality>
+                <onClass rdf:resource="http://purl.obolibrary.org/obo/NCIT_C48440"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Group</rdfs:label>
+    </Class>
+    
+
+
+    <!-- https://tourism-onto.org/ont#TourismActivity -->
+
+    <Class rdf:about="https://tourism-onto.org/ont#TourismActivity">
+        <rdfs:subClassOf rdf:resource="http://www.projecthalo.com/aura#Activity"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="https://tourism-onto.org/ont#organizedBy"/>
+                <someValuesFrom rdf:resource="http://schema.org/TravelAgency"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- https://tourism-onto.org/ont#TourismActor -->
+
+    <Class rdf:about="https://tourism-onto.org/ont#TourismActor"/>
+    
+
+
+    <!-- https://tourism-onto.org/ont#Tourist -->
+
+    <Class rdf:about="https://tourism-onto.org/ont#Tourist">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="https://tourism-onto.org/ont#participatesIn"/>
+                <someValuesFrom rdf:resource="http://www.projecthalo.com/aura#Activity"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="https://tourism-onto.org/ont#requiresTicket"/>
+                <minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</minQualifiedCardinality>
+                <onClass rdf:resource="http://schema.org/Rating"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- https://tourism-onto.org/ont#TouristGroup -->
+
+    <Class rdf:about="https://tourism-onto.org/ont#TouristGroup">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/vcard/ns#Group"/>
+    </Class>
+    
+
+
+    <!-- https://www.wikidata.org/entity/Q107290290 -->
+
+    <Class rdf:about="https://www.wikidata.org/entity/Q107290290">
+        <rdfs:subClassOf rdf:resource="http://sbmi.uth.tmc.edu/ontology/ochv#43215"/>
+        <rdfs:label>LandAdventure</rdfs:label>
+    </Class>
+    
+
+
+    <!-- https://www.wikidata.org/entity/Q131622718 -->
+
+    <Class rdf:about="https://www.wikidata.org/entity/Q131622718">
+        <rdfs:subClassOf rdf:resource="http://sbmi.uth.tmc.edu/ontology/ochv#43215"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="https://tourism-onto.org/ont#requiresTicket"/>
+                <someValuesFrom rdf:resource="http://schema.org/Ticket"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>AirAdventure</rdfs:label>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://tourism-onto.org/ont#CulturalEventsOrganization -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#CulturalEventsOrganization">
+        <rdf:type rdf:resource="http://schema.org/Organization"/>
+        <schema1:name>Pak Cultural Events</schema1:name>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#GroupAlpha -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#GroupAlpha">
+        <rdf:type rdf:resource="https://tourism-onto.org/ont#TouristGroup"/>
+        <tour:hasMembers rdf:resource="https://tourism-onto.org/ont#ahmad"/>
+        <tour:hasMembers rdf:resource="https://tourism-onto.org/ont#ayesha"/>
+        <tour:hasMembers rdf:resource="https://tourism-onto.org/ont#bilal"/>
+        <tour:hasMembers rdf:resource="https://tourism-onto.org/ont#laiba"/>
+        <tour:hasMembers rdf:resource="https://tourism-onto.org/ont#rao"/>
+        <schema1:name>Group Alpha</schema1:name>
+        <rdfs:comment>Alpha Group</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#LHR -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#LHR">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/GSSO_011080"/>
+        <schema1:containsPlace rdf:resource="https://tourism-onto.org/ont#lhrfest"/>
+        <schema1:containsPlace rdf:resource="https://tourism-onto.org/ont#lhrmuseum"/>
+        <schema1:containsPlace rdf:resource="https://tourism-onto.org/ont#lhrzoo"/>
+        <rdfs:comment>Lahore</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#Minha -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#Minha">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCIT_C48440"/>
+        <tour:guidedBy rdf:resource="https://tourism-onto.org/ont#ali"/>
+        <tour:participatesIn rdf:resource="https://tourism-onto.org/ont#khanpur"/>
+        <tour:participatesIn rdf:resource="https://tourism-onto.org/ont#margalla"/>
+        <schema1:givenName>Minha Ahmad</schema1:givenName>
+        <tour:nationality>Pakistani</tour:nationality>
+        <rdfs:comment>Minha Ahmad</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#Res_01 -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#Res_01">
+        <rdf:type rdf:resource="http://schema.org/Reservation"/>
+        <tour:bookedBy rdf:resource="https://tourism-onto.org/ont#ahmad"/>
+        <tour:hasAccomodation rdf:resource="https://tourism-onto.org/ont#pc"/>
+        <tour:hasTicket rdf:resource="https://tourism-onto.org/ont#airblue"/>
+        <tour:hasTransport rdf:resource="https://tourism-onto.org/ont#airblue"/>
+        <rdfs:comment>Reservation 001</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#Res_02 -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#Res_02">
+        <rdf:type rdf:resource="http://schema.org/Reservation"/>
+        <rdfs:comment>Reservation 002</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#agency_rating -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#agency_rating">
+        <rdf:type rdf:resource="http://schema.org/Rating"/>
+        <rdfs:comment>Alpha Trails Ratings</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#ahmad -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#ahmad">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCIT_C48440"/>
+        <tour:guidedBy rdf:resource="https://tourism-onto.org/ont#ali"/>
+        <tour:hasAccomodation rdf:resource="https://tourism-onto.org/ont#royalspeak"/>
+        <tour:memberOf rdf:resource="https://tourism-onto.org/ont#GroupAlpha"/>
+        <tour:participatesIn rdf:resource="https://tourism-onto.org/ont#neelum_paragliding"/>
+        <schema1:givenName>Ahmed Raza</schema1:givenName>
+        <tour:nationality>Pakistani</tour:nationality>
+        <rdfs:comment>Pearl Continent Hotel</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#air-ticket -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#air-ticket">
+        <rdf:type rdf:resource="http://schema.org/Ticket"/>
+        <schema1:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25000</schema1:price>
+        <rdfs:comment>Air Ticket</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#airblue -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#airblue">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/ENVO_03501349"/>
+        <rdfs:comment>AirBlue</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#ali -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#ali">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OCCO_39701100"/>
+        <tour:worksFor rdf:resource="https://tourism-onto.org/ont#trails"/>
+        <schema1:givenName>Ali Amjad</schema1:givenName>
+        <tour:language>Urdu , English, Punjabi</tour:language>
+        <rdfs:comment>Ali</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#alphapolicy -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#alphapolicy">
+        <rdf:type rdf:resource="http://purl.org/dc/terms/Policy"/>
+        <tour:isPolicyOf rdf:resource="https://tourism-onto.org/ont#trails"/>
+        <schema1:description>Standard AlphaTrails Operating Policy</schema1:description>
+        <rdfs:comment>Alpha Trails Policy</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#ayesha -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#ayesha">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCIT_C48440"/>
+        <tour:guidedBy rdf:resource="https://tourism-onto.org/ont#ali"/>
+        <tour:hasAccomodation rdf:resource="https://tourism-onto.org/ont#royalspeak"/>
+        <tour:memberOf rdf:resource="https://tourism-onto.org/ont#GroupAlpha"/>
+        <tour:participatesIn rdf:resource="https://tourism-onto.org/ont#neelum_paragliding"/>
+        <schema1:givenName>Ayesha Noor</schema1:givenName>
+        <tour:nationality>Pakistani</tour:nationality>
+        <rdfs:comment>Ayesha</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#basant -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#basant">
+        <rdf:type rdf:resource="http://schema.org/Festival"/>
+        <tour:organizedBy rdf:resource="https://tourism-onto.org/ont#CulturalEventsOrganization"/>
+        <tour:takesPlaceIn rdf:resource="https://tourism-onto.org/ont#LHR"/>
+        <schema1:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1005</schema1:identifier>
+        <schema1:isAccessibleForFree>yes</schema1:isAccessibleForFree>
+        <schema1:openingHours rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-03T10:00:00</schema1:openingHours>
+        <schema1:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-03T10:00:00</schema1:startDate>
+        <rdfs:comment>Basant Festival</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#bilal -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#bilal">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCIT_C48440"/>
+        <tour:guidedBy rdf:resource="https://tourism-onto.org/ont#ali"/>
+        <tour:hasAccomodation rdf:resource="https://tourism-onto.org/ont#royalspeak"/>
+        <tour:memberOf rdf:resource="https://tourism-onto.org/ont#GroupAlpha"/>
+        <tour:participatesIn rdf:resource="https://tourism-onto.org/ont#neelum_paragliding"/>
+        <schema1:givenName>Bilal Abbas</schema1:givenName>
+        <tour:nationality>Pakistani</tour:nationality>
+        <rdfs:comment>Bilal</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#bus-ticket -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#bus-ticket">
+        <rdf:type rdf:resource="http://schema.org/Ticket"/>
+        <schema1:price rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">540</schema1:price>
+        <rdfs:comment>Bus Ticket</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#clifton -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#clifton">
+        <rdf:type rdf:resource="http://schema.org/Beach"/>
+        <rdfs:comment>Clifton</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#cruise -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#cruise">
+        <rdf:type rdf:resource="http://snomed.info/id/224673002"/>
+        <rdfs:comment>Oceanic Cruise</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#daewoo -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#daewoo">
+        <rdf:type rdf:resource="http://schema.org/BusOrCoach"/>
+        <rdfs:comment>Daewoo Express</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#folkdance -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#folkdance">
+        <rdf:type rdf:resource="http://schema.org/PerformingArtsEvent"/>
+        <tour:organizedBy rdf:resource="https://tourism-onto.org/ont#CulturalEventsOrganization"/>
+        <tour:takesPlaceIn rdf:resource="https://tourism-onto.org/ont#LHR"/>
+        <schema1:name>Cultural Folk Dance Show</schema1:name>
+        <tour:duration>2 hrs</tour:duration>
+        <rdfs:comment>Folk Dance Show</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#green -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#green">
+        <rdf:type rdf:resource="http://snomed.info/id/257611004"/>
+        <rdfs:comment>Green Farmhouse</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#karachiscuba -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#karachiscuba">
+        <rdf:type rdf:resource="http://snomed.info/id/75335000"/>
+        <tour:organizedBy rdf:resource="https://tourism-onto.org/ont#trails"/>
+        <tour:takesPlaceIn rdf:resource="https://tourism-onto.org/ont#karachiscuba"/>
+        <schema1:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1004</schema1:identifier>
+        <schema1:name>Neelum Lake Scuba Diving</schema1:name>
+        <schema1:requiredMinAge rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">18</schema1:requiredMinAge>
+        <schema1:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-06T08:00:00</schema1:startDate>
+        <rdfs:comment>Karachi Scuba Diving Center</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#khanpur -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#khanpur">
+        <rdf:type rdf:resource="http://snomed.info/id/102395001"/>
+        <tour:organizedBy rdf:resource="https://tourism-onto.org/ont#trails"/>
+        <tour:requiresTicket rdf:resource="https://tourism-onto.org/ont#pg-ticket"/>
+        <tour:takesPlaceIn rdf:resource="https://tourism-onto.org/ont#khanpur"/>
+        <schema1:name>Aerial Joy Ride</schema1:name>
+        <schema1:requiredMinAge rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16</schema1:requiredMinAge>
+        <tour:duration>3 Hours</tour:duration>
+        <rdfs:comment>Khanpur Dam Paragliding</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#khoj -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#khoj">
+        <rdf:type rdf:resource="http://schema.org/Resort"/>
+        <tour:hasRating rdf:resource="https://tourism-onto.org/ont#resort_rating"/>
+        <tour:hasReview rdf:resource="https://tourism-onto.org/ont#resort-review"/>
+        <schema1:name>Khoj Bliss Resort</schema1:name>
+        <schema1:numberOfRooms rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">80</schema1:numberOfRooms>
+        <schema1:starRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</schema1:starRating>
+        <rdfs:comment>Khoj Resort</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#laiba -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#laiba">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCIT_C48440"/>
+        <tour:guidedBy rdf:resource="https://tourism-onto.org/ont#ali"/>
+        <tour:hasAccomodation rdf:resource="https://tourism-onto.org/ont#royalspeak"/>
+        <tour:memberOf rdf:resource="https://tourism-onto.org/ont#GroupAlpha"/>
+        <tour:participatesIn rdf:resource="https://tourism-onto.org/ont#neelum_paragliding"/>
+        <schema1:givenName>Laiba Elahi</schema1:givenName>
+        <tour:nationality>Pakistani</tour:nationality>
+        <rdfs:comment>Laiba</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#lhrfest -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#lhrfest">
+        <rdf:type rdf:resource="http://schema.org/FoodEvent"/>
+        <rdfs:comment>Lahore Food Fest</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#lhrhostel -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#lhrhostel">
+        <rdf:type rdf:resource="http://schema.org/Hostel"/>
+        <rdfs:comment>Lahore Hostel</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#lhrmuseum -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#lhrmuseum">
+        <rdf:type rdf:resource="http://schema.org/Museum"/>
+        <tour:partOf rdf:resource="https://tourism-onto.org/ont#LHR"/>
+        <tour:requiresTicket rdf:resource="https://tourism-onto.org/ont#museum-ticket"/>
+        <schema1:name>Lahore Museum</schema1:name>
+        <schema1:openingHours>09:00-17:00</schema1:openingHours>
+        <rdfs:comment>Lahore Museum</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#lhrzoo -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#lhrzoo">
+        <rdf:type rdf:resource="http://schema.org/Zoo"/>
+        <rdfs:comment>Lahore Zoo</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#margalla -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#margalla">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCIT_C180667"/>
+        <tour:organizedBy rdf:resource="https://tourism-onto.org/ont#trails"/>
+        <tour:takesPlaceIn rdf:resource="https://tourism-onto.org/ont#margalla"/>
+        <schema1:name>Margalla Mountain Trek</schema1:name>
+        <tour:duration>12 hrs</tour:duration>
+        <rdfs:comment>Margalla Hills</rdfs:comment>
+        <rdfs:label>Margalla Hiking Trek</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#marinelife -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#marinelife">
+        <rdf:type rdf:resource="http://schema.org/Aquarium"/>
+        <rdfs:comment>Marine Life Gallery</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#masjid -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#masjid">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/GSSO_008167"/>
+        <rdfs:comment>Badshahi Masjid</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#museum-ticket -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#museum-ticket">
+        <rdf:type rdf:resource="http://schema.org/Ticket"/>
+        <rdfs:comment>Museum Ticket</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#neelum_paragliding -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#neelum_paragliding">
+        <rdf:type rdf:resource="http://snomed.info/id/102395001"/>
+        <tour:takesPlaceIn rdf:resource="https://tourism-onto.org/ont#valley"/>
+        <rdfs:comment>Neelum ParaGliding</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#pakrailway -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#pakrailway">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/ENVO_03501107"/>
+        <rdfs:comment>Pakistan Railway</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#pc -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#pc">
+        <rdf:type rdf:resource="http://schema.org/Hotel"/>
+        <tour:hasRating rdf:resource="https://tourism-onto.org/ont#pc_rating"/>
+        <tour:hasReview rdf:resource="https://tourism-onto.org/ont#pc-review"/>
+        <schema1:name>Pearl Continental Lahore</schema1:name>
+        <schema1:numberOfRooms rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">350</schema1:numberOfRooms>
+        <schema1:starRating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</schema1:starRating>
+        <rdfs:comment>PC Hotel</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#pc-review -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#pc-review">
+        <rdf:type rdf:resource="http://schema.org/Review"/>
+        <schema1:reviewBody>Excellent service and stunning views.</schema1:reviewBody>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#pc_rating -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#pc_rating">
+        <rdf:type rdf:resource="http://schema.org/Rating"/>
+        <schema1:ratingValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</schema1:ratingValue>
+        <rdfs:comment>PC hotel ratings</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#pg-ticket -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#pg-ticket">
+        <rdf:type rdf:resource="http://schema.org/Ticket"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#plane-ticket -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#plane-ticket">
+        <rdf:type rdf:resource="http://schema.org/Ticket"/>
+        <rdfs:comment>Plane Ticket</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#rao -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#rao">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCIT_C48440"/>
+        <tour:guidedBy rdf:resource="https://tourism-onto.org/ont#ali"/>
+        <tour:hasAccomodation rdf:resource="https://tourism-onto.org/ont#royalspeak"/>
+        <tour:memberOf rdf:resource="https://tourism-onto.org/ont#GroupAlpha"/>
+        <tour:participatesIn rdf:resource="https://tourism-onto.org/ont#neelum_paragliding"/>
+        <schema1:givenName>Rao Talha</schema1:givenName>
+        <tour:nationality>Pakistani</tour:nationality>
+        <rdfs:comment>Rao Talha</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#resort-review -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#resort-review">
+        <rdf:type rdf:resource="http://schema.org/Review"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#resort_rating -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#resort_rating">
+        <rdf:type rdf:resource="http://schema.org/Rating"/>
+        <rdfs:comment>Resort Ratings</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#review_pc -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#review_pc">
+        <rdf:type rdf:resource="http://schema.org/UserReview"/>
+        <rdfs:comment>PC reviews</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#royalspeak -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#royalspeak">
+        <rdf:type rdf:resource="http://schema.org/Hotel"/>
+        <rdfs:comment>The Royal Peaks Hotel</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#sara -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#sara">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OCCO_41304100"/>
+        <schema1:broker rdf:resource="https://tourism-onto.org/ont#Res_01"/>
+        <tour:worksFor rdf:resource="https://tourism-onto.org/ont#trails"/>
+        <schema1:givenName>Sara Ahsan</schema1:givenName>
+        <tour:language>English, Urdu,German</tour:language>
+        <rdfs:comment>Sara</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#skydive -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#skydive">
+        <rdf:type rdf:resource="http://snomed.info/id/28895007"/>
+        <rdfs:comment>Skydive Pakistan</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#suzopark -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#suzopark">
+        <rdf:type rdf:resource="http://snomed.info/id/20461001"/>
+        <rdfs:comment>Suzo Water Park</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#top -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#top">
+        <rdf:type rdf:resource="http://schema.org/Mountain"/>
+        <rdfs:comment>Mushk Puri Top</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#trails -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#trails">
+        <rdf:type rdf:resource="http://schema.org/TravelAgency"/>
+        <schema1:makesOffer rdf:resource="https://tourism-onto.org/ont#khanpur"/>
+        <schema1:makesOffer rdf:resource="https://tourism-onto.org/ont#lhrfest"/>
+        <schema1:makesOffer rdf:resource="https://tourism-onto.org/ont#margalla"/>
+        <tour:hasEmployee rdf:resource="https://tourism-onto.org/ont#ali"/>
+        <tour:hasEmployee rdf:resource="https://tourism-onto.org/ont#sara"/>
+        <schema1:companyRegistration>REG-PKT-2018-00421</schema1:companyRegistration>
+        <schema1:description>Pakistan&apos;s leading adventure and cultural tour operator</schema1:description>
+        <schema1:email>info@alphatrails.pk</schema1:email>
+        <schema1:name>AlphaTrails Travel Agency</schema1:name>
+        <schema1:telephone>+92-42-1234567</schema1:telephone>
+        <rdfs:comment>Alpha Trails</rdfs:comment>
+        <rdfs:label>agency_AlphaTrails</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#umer -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#umer">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/NCIT_C48440"/>
+        <tour:guidedBy rdf:resource="https://tourism-onto.org/ont#ali"/>
+        <tour:participatesIn rdf:resource="https://tourism-onto.org/ont#karachiscuba"/>
+        <schema1:givenName>Umer Farooq</schema1:givenName>
+        <tour:nationality>Pakistani</tour:nationality>
+        <rdfs:comment>Umer Farooq</rdfs:comment>
+    </NamedIndividual>
+    
+
+
+    <!-- https://tourism-onto.org/ont#valley -->
+
+    <NamedIndividual rdf:about="https://tourism-onto.org/ont#valley">
+        <rdf:type rdf:resource="http://schema.org/Mountain"/>
+        <schema1:name>Neelum Valley</schema1:name>
+        <rdfs:comment>Neelam Valley</rdfs:comment>
+    </NamedIndividual>
+    <rdf:Description>
+        <tour:hasEmployee rdf:resource="https://tourism-onto.org/ont#sara"/>
+    </rdf:Description>
+    <rdf:Description>
+        <tour:worksFor rdf:resource="https://tourism-onto.org/ont#trails"/>
+    </rdf:Description>
+    <rdf:Description>
+        <tour:worksFor rdf:resource="https://tourism-onto.org/ont#trails"/>
+    </rdf:Description>
+    <rdf:Description>
+        <tour:worksFor rdf:resource="https://tourism-onto.org/ont#trails"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
